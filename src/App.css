@@ -1,33 +1,4 @@
-
-.group-input {
-  position: relative;
-  width: 100%;
-}
-.input-icons i {
-  position: absolute;
-}
-
-.input-icons {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.icon {
-  position: absolute;
-  right: -25px;
-  top: 10px;
-}
-
-.input-field {
-  border: 2px solid #d9d9d9;
-  border-radius: 4px;
-  padding: 10px 13px 11px 13px;
-}
-
-.input-field:focus-within {
-  border: 2px solid #b3b3b3;
-}
-
+/* remove default */
 html, body {
   height: 100%;
   margin: 0; padding: 0;  /* to avoid scrollbars */
@@ -38,6 +9,18 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+button {
+  outline: none;
+}
+
+:root {
+    --text-color: #000000;
+    --text-font-size-s: 13px;
+    --headline-font-xl: 24px;
+    --duplo-space-xs: 8px 0px;
+}
+
+/* native elements */
 body {
   color: #7F8285;
 }
@@ -66,72 +49,13 @@ a:hover {
 a:active {
   color: #e00000;
 }
+
+/* project classes */
 #root {
   min-height: 100vh;
 }
 
-.build-wrapper {
-  display: flex;
-  flex-direction: column;
-  /* gap: 8px; */
-  width: 100%;
-}
-
-.build-card {
-  display: flex;
-  flex-direction: row;
-  border: 1px solid #f0f2f3;
-  border-radius: 4px;
-  padding: 12px 24px;
-  margin-bottom: 8px;
-  gap: 8px;
-  cursor: pointer;
-}
-
-.build-content {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-}
-.build-body {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.build-body-element {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-}
-
-.build-datetime {
-  min-width: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.build-status-wait {
-  color: #ff9a00;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-}
-.build-status-error {
-  color: #ff3333;
-  font-weight: 500;
-  line-height: 20px;
-  font-size: 18px;
-}
-.build-status-done {
-  color: #00b341;
-  font-weight: 500;
-  line-height: 20px;
-  font-size: 18px;
-}
-
+/* LAYOUT */
 .layout {
   display: flex;
   min-height: 100vh;
@@ -152,36 +76,48 @@ main {
   margin: 0px 100px;
 }
 
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #f0f2f3;
-  padding-left: 100px;
-  padding-right: 100px;
+.logo {
+  font-size: 24px;
+  line-height: 28px;
 }
 
+/* INPUT */
+.input-field {
+  outline: none;
+  border: 2px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 10px 13px 11px 13px;
+}
+
+.input-field:focus {
+  border: 2px solid #a79999;
+}
+
+label {
+  margin-bottom: 6px;
+}
+
+/* layout */
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.logo {
-  font-size: 28px;
+.flex-left {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
 }
+
 .w-100 {
   width: 100%;
 }
-.mw-50 {
-  display: flex;
-  min-width: 50%;
-}
-.pr-100 {
-  padding-right: 100px;
-}
-.cr {
+
+.cr-xl {
   justify-content: right;
 }
+
 .p-1 {
   padding: 8px;
 }
@@ -189,22 +125,32 @@ footer {
   padding-top: 8px;
   padding-bottom: 8px;
 }
-.ma {
-  margin: auto;
-}
-.shadow {
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+.ptb-2 {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
+.m-1 {
+  margin: 8px;
+}
+.mtb-1 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* TODO */
 .top-button-group {
   min-width: 160px;
+  display: flex;
   align-self: flex-start;
   text-align: right;
+  justify-content: flex-end;
 }
 
 .top-button { 
   display: inline-flex;
-  height: 28px;
+  font-size: 13px;
+  line-height: 28px;
   align-items: center;
   justify-content: center;
   border: 0;
@@ -219,13 +165,23 @@ footer {
 .top-button-label {
   padding-right: 13px;
 }
-
+.top-button:hover {
+  background-color: #dbdbdb;
+}
+.top-button:active, .top-button:focus {
+  background-color: #e6e6e6;
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+/* BUTTON */
 .button {
   min-height: 36px;
   min-width: 80px;
+  font-size: 13px;
   align-items: center;
   border-radius: 4px;
   border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 20px;
   padding-right: 20px;
   cursor: pointer;
@@ -236,12 +192,11 @@ footer {
 .button-control:hover {
   background-color: #dbdbdb;
 }
-.button-control:active {
+.button-control:active, .button-control:focus {
   background-color: #e6e6e6;
   border: 2px solid #b3b3b3;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding-left: 19px;
-  padding-right: 19px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 .button-action {
   background-color: #ffcc00;
@@ -249,18 +204,19 @@ footer {
 .button-action:hover {
   background-color: #f2c200;
 }
-.button-action:active {
+.button-action:active, .button-action:focus {
   background-color: #f2c200;
   border: 2px solid #b38f00;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding-left: 19px;
-  padding-right: 19px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 .button:disabled {
+  border: 0;
   background-color: #f2f2f2;
   color: #7f7f7f;
 }
 
+/* TEXT */
 .text-main {
   color: #000;
 }
@@ -272,25 +228,24 @@ footer {
 }
 .text-13 {
   font-size: 13px;
-  line-height: 16px;
+  line-height: 18px;
 }
 .text-center {
   text-align: center;
 }
-.text-required {
+.text-required::after {
+  content: '*';
   color: #f33;
 }
-.block {
+.display-block {
   display: block;
 }
-
-.i-wait {
-  width: 24px;
-  height: 24px;
-  background-image: './icons/settings.svg';
+.button-container {
+  display: flex;
+  flex-direction: row;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .logo {
     font-size: 18px;
   }
@@ -303,33 +258,22 @@ footer {
   main {
     margin: 8px 10px;
   }
-  .build-datetime {
-    flex-direction: row;
-    border-top: 1px solid;
-  }
-  .build-content {
-    flex-direction: column;
-  }
-  .build-body-element {
-    flex-direction: column;
-  }
+
   .top-button-group {
     min-width: 90px;
   }
-}
-
-.Modal {
-  position: absolute;
-  opacity: 1;
-  background-color: #ffffff;
-}
-
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000;
-  opacity: 0.4;
+  .button-shadow {
+    box-shadow: 0px 0px 0px 0px;
+  }
+  .cr-xl {
+    justify-content: flex-start;
+  }
+  .w-100-xl {
+    width: 100%;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

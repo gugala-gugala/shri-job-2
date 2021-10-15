@@ -1,0 +1,78 @@
+/* BUILD CARD */
+.build-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* gap: 8px; */
+    width: 100%;
+}
+  
+.build-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #f0f2f3;
+    border-radius: 4px;
+    padding: 12px 24px;
+    margin-bottom: 8px;
+    gap: 8px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.build-card:hover {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+  
+.build-content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.build-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+  
+.build-body-element {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+  
+.build-datetime {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.build-status {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;  
+}
+  
+.build-status-wait {
+    color: #ff9a00;
+}
+  
+.build-status-error {
+    color: #ff3333;
+}
+  
+.build-status-done {
+    color: #00b341;
+}
+
+@media (max-width: 500px) {
+    .build-datetime {
+      flex-direction: row;
+      border-top: 1px solid;
+    }
+    .build-content {
+      flex-direction: column;
+    }
+    .build-body-element {
+      flex-direction: column;
+    }
+  }
