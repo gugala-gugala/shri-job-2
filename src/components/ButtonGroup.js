@@ -7,12 +7,12 @@ import {ReactComponent as RunLogo} from '../icons/12_play.svg';
 import {ReactComponent as CogLogo} from '../icons/12_settings.svg';
 import {Button} from './Button'
 
-export default function ButtonGroup({modal, small, settings}) {
+export default function ButtonGroup({modal, small, settings, logo}) {
     const location = useLocation().pathname;
     const history = useHistory();
     let buttons = [];
     console.log(settings)
-    if (settings) {
+    if (settings && !logo) {
         buttons.push(<Button key='1' onClick={modal} size='small'><span className="top-button-icon"><RunLogo/></span> <span className="top-button-label">Run build</span></Button>)
     }
     if (location !== '/settings') {
