@@ -1,15 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
-import {useState} from "react";
+import {useState, useContext} from "react";
 
 import ReactModal from 'react-modal';
 import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import CleanableInput from './components/CleanableInput';
 import ButtonContainer from "./components/ButtonContainer";
+import {RepositoryContext} from './context/repo'
 
 function AsLogo({settings, logo}) {
     let asLogo;
-    if (settings && !logo) {
+    if (settings.repo && !logo) {
         // philip1967/my-aw esome-repo-with-long-long-long-repo-name
         asLogo = <h2 className="text-main" style={{flex:1, lineHeight: '30px', fontSize: '24px'}}>{settings.repo}</h2>;
     } else {
@@ -18,7 +19,9 @@ function AsLogo({settings, logo}) {
     return asLogo;
 }
 
-export const AppHeader = ({settings}) => {
+export const AppHeader = () => {
+    const { settings } = useContext(RepositoryContext);
+
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation().pathname;
     function closeModal() {

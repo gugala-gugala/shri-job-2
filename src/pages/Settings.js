@@ -2,9 +2,12 @@ import Button from '../components/Button';
 import CleanableInput from '../components/CleanableInput';
 import ButtonContainer from '../components/ButtonContainer';
 import { useHistory } from 'react-router';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { RepositoryContext } from '../context/repo';
 
-export function Settings({setSettings}) {
+export function Settings() {
+    const { setSettings } = useContext(RepositoryContext);
+
     const [saveState, setSaveState] = useState(true);
     const [nosaveState, setNoSaveState] = useState(true);
 
@@ -58,7 +61,7 @@ export function Settings({setSettings}) {
             </div>
             <ButtonContainer>
                 <Button key='save' disabled={!saveState} className="button-action w-100-xl">Save</Button>
-                <Button key='nosave' disabled={!nosaveState} className="button-control w-100-xl" type='button' onClick={()=>{ setSettings(null); history.goBack()}}>Cancel</Button>
+                <Button key='nosave' disabled={!nosaveState} className="button-control w-100-xl" type='button' onClick={()=>{ setSettings({}); history.goBack()}}>Cancel</Button>
             </ButtonContainer>
         </form>
     </div>);

@@ -11,7 +11,6 @@ export default function ButtonGroup({modal, small, settings, logo}) {
     const location = useLocation().pathname;
     const history = useHistory();
     let buttons = [];
-    console.log(settings)
     if (settings && !logo) {
         buttons.push(<Button key='1' onClick={modal} size='small'><span className="top-button-icon"><RunLogo/></span> <span className="top-button-label">Run build</span></Button>)
     }
